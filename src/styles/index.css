@@ -1,12 +1,565 @@
 
-/* 
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+/* Semaforo */
+.soporteSemaforo {
+    width: 10px;
+    height: 80px;
+    box-shadow: 5px 5px 10px black;
+    position: absolute; /* Make semaforo positionable within body */
+    top: 10px; /* Move 40px up from body */
+    left: 455px; /* Move 70px to the left of body */
+}
 
-*/
+.semaforo {
+    width: 80px;
+    height: 150px;
+    box-shadow: 5px 5px 10px black;
+    position: absolute; /* Make semaforo positionable within body */
+    top: 85px; /* Move 40px up from body */
+    left: 420px; /* Move 70px to the left of body */
+  }
+
+.semaforoPurple {
+    width: 80px;
+    height: 230px;
+    box-shadow: 5px 5px 10px black;
+    position: absolute; /* Make semaforo positionable within body */
+    top: 85px; /* Move 40px up from body */
+    left: 450px; /* Move 70px to the left of body */
+}
+  
+  .luces {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+  }
+  
+  .luzEncendida {
+    box-shadow: 0 0 20px white;
+  }
+  
+  .luzPurple {
+    background-color: purple;
+  }
+
+  btn-group {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 80%; /* Posiciona verticalmente al 80% de la altura del contenedor */
+    left: 40%; /* Posiciona horizontalmente al 40% del ancho del contenedor */
+    transform: translate(-50%, -50%); /* Centra el elemento dentro de su posición */
+  }
+  
+  .btn {
+    width: 120px; /* Aumenta el ancho de los botones */
+    height: 40px; /* Aumenta la altura de los botones */
+  }
+
+/*tram*/
+/* USEFULL CLASSES */
+.bg-one { background-color: #c5b59c; }
+.bg-two { background-color: #5c4f47; }
+.bg-three { background-color: #f8ffef; }
+.bg-four { background-color: #e29302; }
+.bg-five { background-color: #f5b43c; }
+.bg-six { background-color: #2e1916; }
+.bg-seven { background-color: #593924; }
+.bg-eight { background-color: #040000; }
+.bg-nine { background-color: #bbada2; }
+
+.p-absolute { position: absolute; }
+.border {border: 5px solid #222;}
+
+.center-horizontal {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/*  GENERAL SETTINGS */
+* {
+  box-sizing: border-box;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0);
+  }
+   
+  5% {
+    transform: translateY(-10px);
+  }
+
+  10% {
+    transform: translateY(0);
+  }
+
+  15% {
+    transform: translateY(-10px);
+  }
+
+  20% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+html, 
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: #27AAE2;
+    display: flex;
+    justify-content: center; /* Center body horizontally */
+    align-items: center; /* Center body vertically */
+    height: 100vh; /* Optional: Set full viewport height */
+    position: relative; /* Make body a positioning container */
+  }
+
+.stage {
+  width: 230px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.animation {
+  height: 332px;
+  position: relative;
+  z-index: 2;
+  animation: tramAnim 1800ms cubic-bezier(0.58, 0.04, 0.12, 0.92) 600ms forwards, tranAnimStop 400ms linear infinite alternate 2850ms;
+  will-change: transform;
+  opacity: 0;
+  transform-origin: bottom center;
+}
+
+@keyframes tramAnim {
+  0% {
+    transform: translateY(-80px) scale(0.5) translateZ(0); 
+    opacity: 0; 
+  }
+
+  10% {
+    transform:  translateY(-80px) scale(0.5) translateZ(0);
+    opacity: 0;   
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px) scale(1) translateZ(0) rotate(-1deg);
+    opacity: 1; 
+  }
+}
+
+@keyframes tranAnimStop {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0.3deg);
+  }
+}
+
+/* Main Area - Top */
+.tram-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.tram-top-one {
+  top: 0;
+  left: 50%;
+  height: 8px;
+  width: 110px;
+}
+
+.tram-top-two {
+  top: 4px;
+  left: 50%;
+  height: 10px;
+  width: 116px;
+}
+
+.tram-top-three {
+  top: 10px;
+  height: 30px;
+  width: 148px;
+  z-index: 2;
+}
+
+.tram-top-three:before {
+  content: 'Lisbon';
+  position: absolute;
+  color: #fff;
+  background-color: #1F1A16;
+  font-size: 12px;
+  padding: 4px 56px 2px 5px;
+  left: 5px;
+  bottom: 2px;
+}
+
+.tram-top-three:after {
+  content: '28';
+  position: absolute;
+  color: #fff;
+  background-color: #1F1A16;
+  font-size: 12px;
+  padding: 4px 12px 2px 5px;
+  right: 5px;
+  bottom: 2px;
+}
+
+.tram-top-three-left {
+  bottom: -16px;
+  left: -2px;
+  width: 8px;
+  height: 16px;
+  border-top: 0;
+}
+
+.tram-top-three-right {
+  bottom: -16px;
+  right: -2px;
+  width: 8px;
+  height: 16px;
+  border-top: 0;
+}
+
+.tram-top-four {
+  top: 30px;
+  left: 50%;
+  height: 26px;
+  width: 184px;
+  border-radius: 100px 100px 0 0;
+}
+
+.tram-top-five {
+  bottom: 26px;
+  height: 30px;
+  left: 3px;
+  right: 0px;
+  /* width: 100%; */
+  border-radius: 100px 100px 0 0;
+}
+
+.tram-top-six {
+  bottom: 0px;
+  height: 28px;
+  left: 3px;
+  right: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Main Area - Front */
+.tram-front {
+  top: 80px;
+  width: 186px;
+  height: 200px;
+}
+
+.tram-front-one {
+  width: 100%;
+  height: 10px;
+  top: 0;
+  left: 0;
+}
+
+.tram-front-two {
+  width: 100%;
+  height: 102px;
+  top: 8px;
+  left: 0;
+}
+
+.tram-front-two-left {
+  width: 46px;
+  top: 14px;
+  left: 8px;
+  bottom: 8px;
+  border-radius: 100px 100px 0 0;
+}
+
+.tram-front-two-left:before {
+  content: '';
+  position: absolute;
+  background-color: #2d271b;
+  border-radius: 100px 100px 0 0;
+  border: 2px solid #222;
+  top: 6px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+}
+
+.tram-front-two-middle {
+  width: 58px;
+  top: 8px;
+  bottom: 8px;
+  border-radius: 100px 100px 0 0;
+}
+
+.tram-front-two-middle:before {
+  content: '';
+  position: absolute;
+  background-color: #2d271b;
+  border-radius: 100px 100px 0 0;
+  border: 2px solid #222;
+  top: 6px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+}
+
+.tram-front-two-right {
+  width: 46px;
+  top: 14px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 100px 100px 0 0;
+}
+
+.tram-front-two-right:before {
+  content: '';
+  position: absolute;
+  background-color: #2d271b;
+  border-radius: 100px 100px 0 0;
+  border: 2px solid #222;
+  top: 6px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+}
+
+.tram-front-three {
+  top: 108px;
+  width: 100%;
+  left: 0;
+  height: 58px;
+}
+
+.tram-front-three-middle {
+  width: 30px;
+  height: 30px;
+  bottom: 6px;
+  border-radius: 0;
+  background-color: #5A3A25;
+  border-radius: 50%;
+  border: 2px solid #222;
+}
+
+.tram-front-three-middle:after {
+  content: '';
+  background-color: #fff;
+  border: 2px solid #222;
+  border-radius: 50%;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  position: absolute;
+}
+
+.tram-front-four {
+  width: 100%;
+  bottom: 14px;
+  left: 0;
+  height: 22px;
+}
+
+.tram-front-four-left {
+  width: 13px;
+  height: 12px;
+  border-radius: 50%;
+  top: 3px;
+  left: 40px;
+}
+
+.tram-front-four-right {
+  width: 12px;  
+  height: 12px;
+  border-radius: 50%;
+  top: 3px;
+  right: 40px;
+}
+
+.tram-front-five {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 16px;
+}
+
+/* Main Area - Left */
+.tram-left {
+  top: 98px;
+  left: 0px;
+  width: 22px;
+  height: 182px;
+}
+
+.tram-left-one {
+  height: 100%;
+  top: 0;
+  right: -2px;
+  width: 10px;
+  z-index: 2;
+  border-radius: 0 0 0 6px;
+}
+
+.tram-left-two {
+  height: 100px;
+  top: 0;
+  right: 6px;
+  width: 10px;
+}
+
+.tram-left-three {
+  height: 68px;
+  bottom: 16px;
+  right: 3px;
+  width: 8px;
+  transform: rotate(-5deg);
+}
+
+/* Main Area - Right */
+.tram-right {
+  top: 98px;
+  right: 0px;
+  width: 22px;
+  height: 182px;
+}
+
+.tram-right-one {
+  height: 100%;
+  top: 0;
+  left: -2px;
+  width: 10px;
+  border-radius: 0 0 6px 0;
+  z-index: 2;
+}
+
+.tram-right-two {
+  height: 100px;
+  top: 0;
+  right: 6px;
+  width: 10px;
+}
+
+.tram-right-three {
+  height: 68px;
+  bottom: 16px;
+  left: 3px;
+  width: 8px;
+  transform: rotate(5deg);
+}
+
+/* Main Area - Bottom */
+.tram-bottom {
+  bottom: 0;
+  width: 186px;
+  height: 52px;
+  z-index: 2;
+}
+
+.tram-bottom-one {
+  top: 0;
+  height: 10px;
+  width: 154px;
+}
+
+.tram-bottom-two {
+  top: 12px;
+  height: 10px;
+  width: 144px;
+}
+
+.tram-bottom-three {
+  top: 24px;
+  height: 10px;
+  width: 134px;
+}
+
+.tram-bottom-four {
+  top: 2px;
+  border-bottom: 50px solid #040000;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 0;
+  height: 0;
+  width: 118px;
+}
+
+.tram-rail {
+  height: 170px;
+  bottom: 0;
+  width: 186px;
+}
+
+
+
+.tram-rail-left {
+  height: 100%;
+  width: 12px;
+  z-index: 2;
+  top: 0;
+  opacity: 0;
+  left: 54px;
+  -webkit-transform: translateY(-2px) skew(-15deg);
+          transform: translateY(-2px) skew(-15deg);
+  animation: tramRailAnimLeft 1750ms cubic-bezier(0.58, 0.04, 0.12, 0.92) 250ms forwards;
+}
+
+.tram-rail-right {
+  height: 100%;
+  width: 12px;
+  z-index: 2;
+  top: 0;
+  opacity: 0;
+  right: 54px;
+  -webkit-transform: translateY(-2px) skew(15deg);
+          transform: translateY(-2px) skew(15deg);
+  animation: tramRailAnimRight 1750ms cubic-bezier(0.58, 0.04, 0.12, 0.92) 250ms forwards;
+}
+
+@keyframes tramRailAnimLeft {
+  0% {
+      transform: translateY(300px) translateX(-100px) skew(-15deg);
+      opacity: 1;
+  }
+  
+  100% {
+    transform: translateY(-2px) translateX(0px) skew(-15deg);
+     opacity: 1;
+  }
+}
+ 
+
+@keyframes tramRailAnimRight {
+  0% {
+      transform: translateY(300px) translateX(100px) skew(15deg);
+         opacity: 1;
+  }
+  
+  100% {
+    transform: translateY(-2px) skew(15deg);
+       opacity: 1;
+  }
+}
