@@ -42,7 +42,7 @@
     position: absolute; /* Make semaforo positionable within body */
     top: 85px; /* Move 40px up from body */
     left: 420px; /* Move 70px to the left of body */
-    animation: swing 4s ease-in-out forwards;
+    
 }
   
   .luces {
