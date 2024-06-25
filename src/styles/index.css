@@ -3,6 +3,18 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 /* Semaforo */
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(28deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .soporteSemaforo {
     width: 10px;
     height: 80px;
@@ -10,6 +22,7 @@
     position: absolute; /* Make semaforo positionable within body */
     top: 10px; /* Move 40px up from body */
     left: 455px; /* Move 70px to the left of body */
+    
 }
 
 .semaforo {
@@ -19,15 +32,17 @@
     position: absolute; /* Make semaforo positionable within body */
     top: 85px; /* Move 40px up from body */
     left: 420px; /* Move 70px to the left of body */
+    animation: swing 4s ease-in-out forwards;
   }
 
 .semaforoPurple {
     width: 80px;
-    height: 230px;
+    height: 180px;
     box-shadow: 5px 5px 10px black;
     position: absolute; /* Make semaforo positionable within body */
     top: 85px; /* Move 40px up from body */
-    left: 450px; /* Move 70px to the left of body */
+    left: 420px; /* Move 70px to the left of body */
+    animation: swing 4s ease-in-out forwards;
 }
   
   .luces {
@@ -206,7 +221,7 @@ body {
 }
 
 .tram-top-three:before {
-  content: 'Lisbon';
+  content: 'Bogota';
   position: absolute;
   color: #fff;
   background-color: #1F1A16;
